@@ -1,8 +1,6 @@
 #include "ObserverSerial.h"
 
-void ObserverSerial::testSerial() {
-  Serial.println("Test serial");
-}
+#include "HardwareSerial.h"
 
 void ObserverSerial::onReceivedDataFromSubject(const Subject *sub) {
   Serial.println("Value is "); 
