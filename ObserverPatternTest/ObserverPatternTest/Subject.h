@@ -1,3 +1,5 @@
+#ifndef SUBJECT_H
+#define SUBJECT_H
 class Observer;
 
 class Subject {
@@ -13,3 +15,4 @@ private:
     void _notifyObserver();
     Observer* mObserver;
 };
+#endif
