@@ -1,33 +1,33 @@
 #include "ObserverSerial.h"
+#include "Observer.h"
+#include "Subject.h"
 
-
-Subject* subject;
-ObserverSerial* observerSerial;
+Subject subject;
+ObserverSerial observerTester;
 
 void setup()
 {
-    Serial.begin(115200);
-    observerSerial = new ObserverSerial();
-    subject = new Subject();
-    observerSerial->attachSubject(subject);
+    Serial.begin(9600);
+    observerTester.attachSubject(&subject);
 }
 
 void loop()
-{    
+{
+
     for (int i = 0; i < 10; i++) {
-        subject->setVal(i); //this will print data on Serial Monitor
+        subject.setVal(i); //this will print data on Serial Monitor
         delay(500);
     }
 
     Serial.println("Going to unregister Observer");
-    subject->unregisterObserver();
+    subject.unregisterObserver();
 
     for (int i = 0; i < 10; i++) {
-        subject->setVal(i); // we will not be seeing any value on Serial Monitor because we unregister Observer
+        subject.setVal(i); // we will not be seeing any value on Serial Monitor because we unregister Observer
         delay(500);
     }
 
     Serial.println("Going to register Observer again");
-    subject->registerObserver(observerSerial);
+    subject.registerObserver(&observerTester);
 }
 
