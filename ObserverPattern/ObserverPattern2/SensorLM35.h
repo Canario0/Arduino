@@ -1,9 +1,9 @@
 #ifndef SENSORLM35_H
 #define SENSORLM35_H
 #include "Subject.h"
-//#include "Thread.h"
+#include "Thread.h"
 
-class SensorLM35 : public Subject
+class SensorLM35 : public Subject, public Thread
 {
   private:
     int pin;
@@ -17,7 +17,7 @@ class SensorLM35 : public Subject
     int getPin();
     void setValue(const double);
     double getValue();
-    //void run();
+    void run();
 };
 
 #endif

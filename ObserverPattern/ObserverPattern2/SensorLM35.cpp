@@ -26,9 +26,9 @@ double SensorLM35::getValue()
     return temp;
 }
 
-/*
-void SensorLM35<E>::run()
+
+void SensorLM35::run()
 {
     setValue(double(analogRead(pin)));
     runned();
-}*/
+}

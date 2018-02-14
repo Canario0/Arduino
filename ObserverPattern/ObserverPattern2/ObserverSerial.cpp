@@ -1,15 +1,13 @@
 #include "ObserverSerial.h"
 #include "SensorLM35.h"
-#include <iostream>
-using namespace std;
-//#include "HardwareSerial.h"
+#include "HardwareSerial.h"
 
 ObserverSerial::ObserverSerial(){
     
 }
 
 void ObserverSerial::onReceivedDataFromSubject() {
-    printf("Value is "); cout << sensor->getValue()<< endl;//printf("%d",aux->getValue());
+    Serial.print("Value is "); Serial.println(sensor->getValue());
 }
 
 void ObserverSerial::attachSubject(SensorLM35 * _sensor){
